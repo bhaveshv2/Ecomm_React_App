@@ -1,0 +1,44 @@
+{
+    "products":[
+        {
+            "id":"1",
+            "name":"Dec T-Shirt",
+            "description":"A Half Seleeve, Regular fit and Banded collar T-shirt. Made up of 60% cottan and 40% Polyester.",
+            "price":699,
+            "rating":"4.1",
+            "img":"https://contents.mediadecathlon.com/p732697/a7ceed49f385e3e13bab53fd65f40455/p732697.jpg?f=650x650"
+        },
+        {
+            "id":"2",
+            "name":"Vaulat Guitar",
+            "description":"Acoustic guitars are built keeping the best functionality and craftsmanship in mind. This guitar body is made of premium quality Solid Spruce Wood Top and Mahogany Laminate Body, with a Rosewood Fretboard.",
+            "price":5900,
+            "rating":"4.8",
+            "img":"https://cdn.shopify.com/s/files/1/0657/6821/products/vau-ea40_x700.jpg?v=1597055076"
+        },
+        {
+            "id":"3",
+            "name":"Ti Watch",
+            "description":"Dial Color: White, Case Shape: Round, Band Color: Brown, Band Material: Leather",
+            "price":599,
+            "rating":"3.5",
+            "img":"https://staticimg.titan.co.in/Titan/Catalog/1585SL07_1.jpg?pView=pdp"
+        },
+        {
+            "id":"4",
+            "name":"S Mobile",
+            "description":"Size name: 4GB RAM, 64GB Storage | Colour:Blue. With the S31, it provides the powerful 6000 mAh battery along with all round features comprising of a 48 MP rear camera in Triple camera set up and 20 MP front camera and an immersive sAmoled screen.",
+            "price":20999,
+            "rating":"4",
+            "img":"https://images-na.ssl-images-amazon.com/images/I/71-Su4Wr0HL._SL1500_.jpg"
+        },
+        {
+            "id":"5",
+            "name":"Washing Machine",
+            "description":"A front load washing machine that makes good use of a superior air bubble wash system which first creates and then releases agitated air bubbles into the water flow system to deliver a good cleaning job; These bubbles eventually activate detergent particles and lead them to penetrate deep even into hard linen clothing fibres to get rid of stubborn grease and dirt there; Aqua energy system to treat hard water.",
+            "price":35698,
+            "rating":"2.5",
+            "img":"https://kitchenaid-h.assetsadobe.com/is/image/content/dam/global/whirlpool/laundry/washer/images/hero-WFW8620HC.tif"
+        }
+    ]
+}
