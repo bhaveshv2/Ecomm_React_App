@@ -15,7 +15,8 @@ class AddProduct extends React.Component{
         }
     }
 
-    addProduct=()=>{
+    addProduct=(e)=>{
+        e.preventDefault();
         let product={
             name:this.state.name,
             description:this.state.description,
@@ -27,7 +28,7 @@ class AddProduct extends React.Component{
 
         this.props.dispatch(addProductToList(product));
         console.log('status',this.props);
-        if(this.props.state.status === 'success'){
+        if(this.props.status === 'success'){
             this.resetForm();
         }
     }
@@ -37,20 +38,21 @@ class AddProduct extends React.Component{
     }
 
     render(){
+        
         return(
             <form id="add-product-page-container">
                 <h1>ADD PRODUCT</h1>
                 <div className="input-group">
                     <label htmlFor="name">Name:</label>
-                    <input type="text" onChange={e=>this.setState({name:e.target.value})} required/>
+                    <input type="text" name="name" onChange={e=>this.setState({name:e.target.value})} required/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="description">Description:</label>
-                    <textarea rows="3" cols="30" onChange={e=>this.setState({description:e.target.value})} required/>
+                    <textarea rows="3" cols="30" name="description" onChange={e=>this.setState({description:e.target.value})} required/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="price">Price:</label>
-                    <input type="number" onChange={e=>this.setState({price:e.target.value})} required/>
+                    <input type="number" name="price" onChange={e=>this.setState({price:e.target.value})} required/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="rating">Rating:</label>
@@ -59,11 +61,11 @@ class AddProduct extends React.Component{
                 </div>
                 <div className="input-group">
                     <label htmlFor="img">Image URL:</label>
-                    <input type="url" onChange={e=>this.setState({img:e.target.value})} required/>
+                    <input type="url" name="imageUrl" onChange={e=>this.setState({img:e.target.value})} required/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="category">Category:</label>
-                    <input type="text" onChange={e=>this.setState({category:e.target.value})} required/>
+                    <input type="text" name="category" onChange={e=>this.setState({category:e.target.value})} required/>
                 </div>
                 <div className="form-buttons">
                     <button className="btn-success" onClick={this.addProduct}>SUBMIT</button>
@@ -77,6 +79,7 @@ class AddProduct extends React.Component{
 function mapStateToProps(state){
     return{
         products:state.products,
+        status:state.status
     }
 }
 
