@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar,Home,Page404, AddProduct } from './index';
+import { Navbar,Home,Page404, AddProduct,EditDetailsProduct } from './index';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAllProducts } from '../actions/products';
@@ -11,14 +11,16 @@ class App extends React.Component {
   }
 
   render(){
-    const {products} = this.props;
+    
     return (
       <Router>
         <div className="App">
           <Navbar />
           <Switch>
-            <Route exact path="/" render={(props)=>{return <Home {...props} products={products}/>}}/>
+            <Route exact path="/" component={Home} />
             <Route path="/add-product" component={AddProduct} />
+            <Route path="/product-details/:productId" component={EditDetailsProduct}/>
+            
             <Route component={Page404}/>
           </Switch>
         </div>

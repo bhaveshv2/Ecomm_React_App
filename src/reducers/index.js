@@ -1,9 +1,10 @@
-import { SHOW_ALL_PRODUCTS, ADD_PRODUCT_TO_LIST, DELETE_PRODUCT } from "../actions/actionTypes";
+import { SHOW_ALL_PRODUCTS, ADD_PRODUCT_TO_LIST, DELETE_PRODUCT, FETCH_SPECIFIC_PRODUCT, UPDATE_PRODUCT  } from "../actions/actionTypes";
 
 const initialProductState = {
     products:[],
     success:'',
     message:'',
+    product:{}
 }
 
 export default function products(state=initialProductState,action){
@@ -38,6 +39,23 @@ export default function products(state=initialProductState,action){
                 products:filteredList,
                 status:'success',
                 message:'Product deleted Successfully!'
+            }
+
+        case FETCH_SPECIFIC_PRODUCT:
+            return {
+                ...state,
+                product:action.product,
+                status:'success',
+                message:'Product Fetched!',
+            }
+
+        case UPDATE_PRODUCT:
+            // const updatedProduct = state.products.map(product=>product.id === action.product.id ? action.product:product);
+            return{
+                ...state,
+                product:action.product,
+                status:'success',
+                message:'Product Updated!'
             }
         default:
             return state;
