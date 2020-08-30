@@ -9,7 +9,7 @@ class EditDetailsProduct extends Component {
         this.state={
             edittable:false,
             name:'',
-            // category:this.props.product.category,
+            // category:'',
             rating:'',
             price:0,
             description:'',
@@ -102,10 +102,12 @@ class EditDetailsProduct extends Component {
                             <label htmlFor="description" className="product-label">Description:</label>
                             {edittable?<textarea rows="10" cols="100" name="description" value={description} onChange={e=>this.setState({description:e.target.value})}/>:<div className="product-description-edit product-in">{product.description}</div>}
                         </div>
-                        {edittable && <div className="update-btn">
-                            <button className="btn" onClick={this.handelUpdate}>UPDATE PRODUCT</button>
-                            <button className="btn" onClick={()=>this.setState({edittable:false})}>GO BACK</button>
-                        </div>}
+                        {edittable && 
+                            <div className="update-btn">
+                                <button className="btn" onClick={this.handelUpdate}>UPDATE PRODUCT</button>
+                                <button className="btn" onClick={()=>this.setState({edittable:false})}>GO BACK</button>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

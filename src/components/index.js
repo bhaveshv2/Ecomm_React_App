@@ -6,5 +6,6 @@ import ProductsList from './ProductsList';
 import ProductCard from './ProductCard';
 import AddProduct from './AddProduct';
 import EditDetailsProduct from'./EditDetailsProduct';
+import Cart from './Cart';
 
-export { App,Navbar,Home,Page404,ProductsList,ProductCard,AddProduct,EditDetailsProduct };
+export { App,Navbar,Home,Page404,ProductsList,ProductCard,AddProduct,EditDetailsProduct,Cart };

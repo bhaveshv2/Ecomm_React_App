@@ -20,10 +20,10 @@ class Navbar extends Component {
                 <img src="https://image.flaticon.com/icons/svg/2154/2154651.svg" alt="user-dp not found"/>
                 <div className="username">John Doe</div>
               </div>
-              <div className="cart-total-container">
-                <img src="https://image.flaticon.com/icons/svg/600/600214.svg" alt="cartNotFound"/>
-                <span>52</span>
-              </div>
+              <Link to="/cart" className="cart-total-container">
+                <img src="https://image.flaticon.com/icons/svg/600/600214.svg" alt="Not Found"/>
+                <span>{this.props.cartLength}</span>
+              </Link>
             </div>
         </div>
     )

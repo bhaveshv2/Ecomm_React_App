@@ -1,10 +1,11 @@
-import { SHOW_ALL_PRODUCTS, ADD_PRODUCT_TO_LIST, DELETE_PRODUCT, FETCH_SPECIFIC_PRODUCT, UPDATE_PRODUCT  } from "../actions/actionTypes";
+import { SHOW_ALL_PRODUCTS, ADD_PRODUCT_TO_LIST, DELETE_PRODUCT, FETCH_SPECIFIC_PRODUCT, UPDATE_PRODUCT, ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART  } from "../actions/actionTypes";
 
 const initialProductState = {
     products:[],
     success:'',
     message:'',
-    product:{}
+    product:{},
+    cart:[]
 }
 
 export default function products(state=initialProductState,action){
@@ -57,6 +58,24 @@ export default function products(state=initialProductState,action){
                 status:'success',
                 message:'Product Updated!'
             }
+
+        case ADD_PRODUCT_TO_CART:
+            return{
+                ...state,
+                cart:[action.productId, ...state.cart],
+                status:'success',
+                message:'Product added to Cart!'
+            }
+
+        case REMOVE_PRODUCT_FROM_CART:
+            const updatedCart = state.cart.filter(productId=>productId!==action.productId);
+            return{
+                ...state,
+                cart:updatedCart,
+                status:'success',
+                message:'Product removed from the Cart!'
+            }
+            
         default:
             return state;
     }

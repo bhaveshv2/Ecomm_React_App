@@ -3,6 +3,7 @@ import { ProductCard } from './index';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { addProductToCart, removeProductFromCart } from '../actions/cart';
 
 class ProductsList extends Component {
     constructor(props){
@@ -27,13 +28,31 @@ class ProductsList extends Component {
         }
     }
 
+    handelAddToCart = (e) =>{
+        const productId = e.target.id;
+        console.log(this.props.status);
+        if(e.target.src === "https://image.flaticon.com/icons/svg/1417/1417434.svg"){
+            this.props.dispatch(addProductToCart(productId));
+            if(this.props.status === 'success'){
+                e.target.src = 'https://image.flaticon.com/icons/svg/1828/1828901.svg';
+            }
+        }else{
+            this.props.dispatch(removeProductFromCart(productId));
+            if(this.props.status === 'success'){
+                e.target.src = 'https://image.flaticon.com/icons/svg/1417/1417434.svg';
+            }
+        }
+    }
+
     render() {
         const products = this.state.sortEnabled ? this.state.sortedProducts:this.props.products;
+        const cart = this.props.cart;
+        // console.log("cart",cart);
         return (
             <div className="products-list">
                 <div className="add-product-container">
                     <Link to="/add-product" className="add-product-button">
-                        <button>+ ADD PRODUCT</button>
+                        <button>+CREATE PRODUCT</button>
                     </Link>
                 </div>
                 <div className="sort-products">
@@ -43,7 +62,7 @@ class ProductsList extends Component {
                 </div>
                 <div className="product-list-container">
                     {products.map(product=>
-                        <ProductCard product={product} key={product.id}/>
+                        <ProductCard product={product} src={cart.includes(product.id.toString()) ? "https://image.flaticon.com/icons/svg/1828/1828901.svg":"https://image.flaticon.com/icons/svg/1417/1417434.svg"} handelAddToCart={this.handelAddToCart} key={product.id}/>
                     )}
                 </div>
             </div>
@@ -57,7 +76,9 @@ ProductsList.propTypes ={
 
 function mapStateToProps(state){
     return{
-        products:state.products
+        products:state.products,
+        cart:state.cart,
+        status:state.status
     }
 }
 
