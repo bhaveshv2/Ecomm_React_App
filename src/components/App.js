@@ -37,7 +37,7 @@ function mapStateToProps(state){
 }
 
 App.propTypes = {
-  products:PropTypes.object.isRequired,
+  products:PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps)(App);

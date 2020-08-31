@@ -36,7 +36,7 @@ class ProductCard extends Component {
                 </div>
                 <div className="product-price-category-container">
                     <div className="product-price">&#8377; {product.price}</div> 
-                    <div className="product-category">Electronics and Appliances</div>
+                    <div className="product-category">{product.category}</div>
                 </div>
             </div>
         )

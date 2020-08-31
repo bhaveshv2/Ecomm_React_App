@@ -38,10 +38,11 @@ class AddProduct extends React.Component{
     }
 
     render(){
-        
+        const {message} = this.props;
         return(
             <form id="add-product-page-container">
                 <h1>ADD PRODUCT</h1>
+                <div className="message-container">{message && <div id="message">{message}</div>}</div>
                 <div className="input-group">
                     <label htmlFor="name">Name:</label>
                     <input type="text" name="name" onChange={e=>this.setState({name:e.target.value})} required/>
@@ -79,7 +80,8 @@ class AddProduct extends React.Component{
 function mapStateToProps(state){
     return{
         products:state.products,
-        status:state.status
+        status:state.status,
+        message:state.message
     }
 }
 

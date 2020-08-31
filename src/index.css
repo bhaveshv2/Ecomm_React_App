@@ -22,6 +22,42 @@ code {
   height: 100vh;
 }
 
+@keyframes cssAnimation {
+  to {
+      width:0;
+      height:0;
+      overflow:hidden;
+  }
+}
+@-webkit-keyframes cssAnimation {
+  to {
+      width:0;
+      height:0;
+      visibility:hidden;
+  }
+}
+
+.message-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-animation: cssAnimation 0s ease-in 2s forwards;
+  /* Safari and Chrome */
+  animation: cssAnimation 0s ease-in 2s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+
+
+#message{
+  background:rgba(30, 182, 30, 0.561);
+  color: white;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+}
+
 /* NAVBAR */
 
 .navbar-container{

@@ -9,7 +9,7 @@ class EditDetailsProduct extends Component {
         this.state={
             edittable:false,
             name:'',
-            // category:'',
+            category:'',
             rating:'',
             price:0,
             description:'',
@@ -45,7 +45,8 @@ class EditDetailsProduct extends Component {
             name:this.props.product.name,
             rating:this.props.product.rating,
             price:this.props.product.price,
-            description:this.props.product.description
+            description:this.props.product.description,
+            category:this.props.product.category,
         })
     }
 
@@ -57,7 +58,7 @@ class EditDetailsProduct extends Component {
             description:this.state.description,
             rating:this.state.rating,
             price:this.state.price,
-            // category:this.state.category
+            category:this.state.category,
             edittable:false,
             img
         }
@@ -65,12 +66,13 @@ class EditDetailsProduct extends Component {
     }
 
     render() {
-        const {product} = this.props;        
+        const {product,message} = this.props;        
         console.log('state:',this.state);
         // console.log('props',this.props);
-        const {edittable,name,rating,price,description} = this.state;
+        const {edittable,name,rating,price,description,category} = this.state;
         return (
             <div className="edit-details-container">
+                <div className="message-container">{message && <div id="message">{message}</div>}</div>
                 <div className="edit-function">
                     {!edittable && <div className="edit-button" onClick={this.handelEditing}>
                         <img src="https://image.flaticon.com/icons/svg/2919/2919592.svg" alt="edit-pencil"/>
@@ -88,7 +90,7 @@ class EditDetailsProduct extends Component {
                         </div>
                         <div className="product-edit">
                             <label htmlFor="category" className="product-label">Category :</label>
-                            {/* {edittable ? <input type="text" name="category" value={} onChange={e=>this.setState({category:e.target.value})}/>:<div className="product-category-edit product-in">sdfgsdfgsh</div>} */}
+                            {edittable ? <input type="text" name="category" value={category} onChange={e=>this.setState({category:e.target.value})}/>:<div className="product-category-edit product-in">{product.category}</div>}
                         </div>
                         <div className="product-edit">
                             <label htmlFor="rating" className="product-label">Rating :</label> 
@@ -96,7 +98,7 @@ class EditDetailsProduct extends Component {
                         </div>
                         <div className="product-edit">
                             <label htmlFor="price" className="product-label">Price :</label>  
-                            {edittable?<input type="number" name="price" value={price} onChange={e=>this.setState({price:e.target.value})}/>:<div className="product-price-edit product-in">${product.price}</div>}
+                            {edittable?<input type="number" name="price" value={price} onChange={e=>this.setState({price:e.target.value})}/>:<div className="product-price-edit product-in">&#8377; {product.price}</div>}
                         </div>
                         <div className="product-edit">
                             <label htmlFor="description" className="product-label">Description:</label>
@@ -117,7 +119,8 @@ class EditDetailsProduct extends Component {
 
 function mapStateToProps(state){
     return{
-        product:state.product
+        product:state.product,
+        message:state.message
     }
 }
 

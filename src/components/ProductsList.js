@@ -47,6 +47,7 @@ class ProductsList extends Component {
     render() {
         const products = this.state.sortEnabled ? this.state.sortedProducts:this.props.products;
         const cart = this.props.cart;
+        const message = this.props.message;
         // console.log("cart",cart);
         return (
             <div className="products-list">
@@ -55,6 +56,7 @@ class ProductsList extends Component {
                         <button>+CREATE PRODUCT</button>
                     </Link>
                 </div>
+                <div className="message-container">{message && <div id="message">{message}</div>}</div>
                 <div className="sort-products">
                     <div onClick={this.sortProducts} className="sort-btn">
                         <img src="https://image.flaticon.com/icons/svg/25/25612.svg" alt=""/>
@@ -71,14 +73,15 @@ class ProductsList extends Component {
 }
 
 ProductsList.propTypes ={
-    products:PropTypes.object.isRequired,
+    products:PropTypes.array.isRequired,
 }
 
 function mapStateToProps(state){
     return{
         products:state.products,
         cart:state.cart,
-        status:state.status
+        status:state.status,
+        message:state.message,
     }
 }
 
