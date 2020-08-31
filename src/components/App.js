@@ -12,7 +12,6 @@ class App extends React.Component {
 
   render(){
     const cartLength = this.props.cart.length;
-    console.log(cartLength);
     return (
       <Router>
         <div className="App">

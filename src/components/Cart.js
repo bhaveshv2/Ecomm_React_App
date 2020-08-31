@@ -48,10 +48,14 @@ class Cart extends Component {
                                 null
                         ))}
                     </div>
-                    <div className="total">
-                        <label>Total</label>
-                        <div>&#8377; {this.cartTotal()}</div>
-                    </div>
+                    {
+                        cart.length!==0 ? 
+                        <div className="total">
+                            <label>Total</label>
+                            <div>&#8377; {this.cartTotal()}</div>
+                        </div>:
+                        <div className="cart-empty">Cart is Empty! Buy something...</div>
+                    }
                 </div>
             </div>
         )

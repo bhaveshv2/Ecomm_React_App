@@ -450,3 +450,9 @@ code {
   font-weight: bolder;
 }
 
+.cart-empty{
+  font-weight: bold;
+  font-size:2rem;
+  text-align: center;
+}
+
