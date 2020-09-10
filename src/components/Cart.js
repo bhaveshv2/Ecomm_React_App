@@ -21,7 +21,6 @@ class Cart extends Component {
 
     render() {
         const {products,cart} = this.props;
-        // console.log(this.props);
         return (
             <div className="cart-container">
                 <div className="cart-items-container">

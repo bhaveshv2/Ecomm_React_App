@@ -37,6 +37,7 @@ export default function products(state=initialProductState,action){
         case DELETE_PRODUCT:
             const filteredList = state.products.filter(product => product.id !== action.productId);
             return{
+                ...state,
                 products:filteredList,
                 status:'success',
                 message:'Product deleted Successfully!'
